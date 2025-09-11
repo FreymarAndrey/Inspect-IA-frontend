@@ -1,0 +1,102 @@
+a.nav {
+  text-decoration: none;
+}
+
+a.nav div.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+  margin: 20px 0;
+  transition: transform 0.3s;
+}
+
+a.nav div.logo:hover {
+  cursor: pointer;
+  overflow: hidden;
+  transform: translateY(-5px);
+}
+
+div.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--white-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+div.container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+div.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+div.container form div.form_input {
+  margin-bottom: 20px;
+}
+
+div.container form div.form_input div {
+  position: relative;
+}
+
+div.container form div.form_input input,
+div.container form div.form_input select,
+div.container form div.form_input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+div.container form div.form_input input:focus,
+div.container form div.form_input select:focus,
+div.container form div.form_input textarea:focus {
+  border-color: var(--primary-color);
+}
+
+div.container form div.form_input textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+div.container form div.form_input label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-main-color);
+  font-weight: 500;
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.submitButton {
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitButton:hover {
+  background: var(--text-primary-color);
+}
+
+.submitButton:disabled {
+  background: var(--button-disabled-color);
+  cursor: not-allowed;
+}

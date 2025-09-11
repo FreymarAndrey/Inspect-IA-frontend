@@ -1,0 +1,13 @@
+.footer {
+  background: linear-gradient(75deg, var(--white-color), var(--primary-color));
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}

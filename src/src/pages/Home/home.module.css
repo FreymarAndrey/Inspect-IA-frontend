@@ -1,0 +1,303 @@
+/* Hero Section */
+div.home section.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+
+div.home section.hero div.hero_content {
+  flex: 1;
+}
+
+div.home section.hero div.hero_content h1.hero_title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--white-color);
+}
+
+div.home section.hero div.hero_content h3.hero_subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: var(--white-color);
+}
+
+div.home section.hero div.hero_image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.home section.hero div.hero_image img.placeholder_image {
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+div.home section.hero div.hero_content a.schedule_button {
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: var(--white-color);
+  text-decoration: none;
+}
+
+div.home section.hero div.hero_content a.schedule_button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* About Section */
+div.home section.about {
+  padding: 80px 0;
+  background: var(--background-color);
+}
+
+div.home section.about p.about_text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Services Section */
+div.home section.services {
+  padding: 80px 0;
+  background: var(--white-color);
+}
+
+div.home section.services div.container div.service_card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+div.home section.services div.container div.slider_wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+div.home section.services div.container div.slider_wrapper div.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+div.home
+  section.services
+  div.container
+  div.slider_wrapper
+  div.slider::-webkit-scrollbar {
+  display: none;
+}
+
+div.home
+  section.services
+  div.container
+  div.slider_wrapper
+  div.slider
+  div.service_card {
+  flex: 0 0 calc(100% / 3);
+  scroll-snap-align: start;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+div.home
+  section.services
+  div.container
+  div.slider_wrapper
+  div.slider
+  div.service_card:hover {
+  transform: translateY(-5px);
+}
+
+div.home section.services div.container div.service_card p,
+div.home section.services div.container div.service_card ul {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+div.home section.services div.container div.service_card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+div.home section.services div.container div.service_card li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+div.home section.services div.container div.service_card li::before {
+  content: "✓";
+  color: var(--green-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+div.home section.services div.container div.slider_wrapper button.arrow {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  flex-shrink: 0;
+}
+
+div.home
+  section.services
+  div.container
+  div.slider_wrapper
+  button.arrow
+  .arrow:hover {
+  background: #f0f0f0;
+}
+
+div.home section.services div.container div.slider_wrapper button.arrow i {
+  color: var(--primary-color);
+}
+
+div.home section.services div.container a {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: var(--white-color);
+  text-decoration: none;
+  margin: 40px auto 0;
+  display: flex;
+  width: max-content;
+}
+
+div.home section.services div.containera.schedule_button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--white-color);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* section whyus*/
+
+div.home section.why_choose_us {
+  padding: 80px 0;
+  background: var(--aquamarine-light-color);
+}
+
+div.home section.why_choose_us div.container div.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+div.home section.why_choose_us div.container div.features div.feature {
+  text-align: center;
+  max-width: 300px;
+}
+
+div.home section.why_choose_us div.container div.features div.feature h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+div.home section.why_choose_us div.container div.features div.feature p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Container */
+div.home section div.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Tittle */
+div.home section h2.section_title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  div.home div.hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  div.home div.hero div.hero_content h1.hero_title {
+    font-size: 2rem;
+  }
+
+  div.home div.hero div.hero_content h3.hero_subtitle {
+    font-size: 1rem;
+  }
+
+  div.home div.hero_image {
+    margin-top: 40px;
+  }
+
+  div.home div.hero_image div.placeholder_image {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
+
+  div.home section.why_choose_us div.container div.features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.home
+    section.services
+    div.container
+    div.slider_wrapper
+    div.slider
+    div.service_card {
+    flex: 0 0 100%;
+  }
+}

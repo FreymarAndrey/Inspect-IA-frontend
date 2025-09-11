@@ -1,0 +1,12 @@
+services:
+  react-inspectia-web-client:
+    container_name: react-inspectia-web-client
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src/src:/app/src
+      - /app/node_modules

@@ -1,0 +1,46 @@
+header.header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(75deg, var(--white-color), var(--primary-color));
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  padding: 0 20px;
+}
+
+header.header div.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header.header nav.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header.header nav.nav a.link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+header.header nav.nav a.link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header.header {
+    flex-direction: column;
+  }
+
+  header.header nav.nav {
+    margin-top: 1rem;
+  }
+}
