@@ -31,6 +31,11 @@ const Home = () => {
               expertas para asegurar la integridad y el cumplimiento de tu
               negocio.
             </h3>
+            <img
+              src={heroImg}
+              alt="hero-img"
+              className={`${styles.placeholder_image} ${styles.mobile}`}
+            />
             <Link
               to={`/${publicRoutes.SCHEDULE}`}
               className={styles.schedule_button}
@@ -174,27 +179,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-        {/* <section className={styles.contact}>
-        <div className={styles.container}>
-          <h2 className={styles.section_title}>Contáctanos</h2>
-          <p className={styles.contact_text}>
-            ¿Listo para mejorar la integridad de tu negocio? Ponte en contacto
-            con nosotros hoy mismo.
-          </p>
-          <div className={styles.contact_buttons}>
-            <button className={styles.consult_button}>
-              Solicitar Consulta
-            </button>
-            <Link
-              to={`/${publicRoutes.SCHEDULE}`}
-              className={styles.schedule_button}
-            >
-              Agendar Auditoría
-            </Link>
-          </div>
-        </div>
-      </section> */}
       </div>
       <Footer />
     </>

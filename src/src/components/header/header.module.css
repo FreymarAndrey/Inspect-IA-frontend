@@ -17,6 +17,11 @@ header.header div.logo {
   font-weight: bold;
 }
 
+header.header label.mobile div.container_mobile,
+header.header input {
+  display: none;
+}
+
 header.header nav.nav {
   display: flex;
   gap: 1rem;
@@ -37,10 +42,56 @@ header.header nav.nav a.link:hover {
 /* Responsive */
 @media (max-width: 768px) {
   header.header {
-    flex-direction: column;
+    justify-content: space-between;
   }
 
-  header.header nav.nav {
-    margin-top: 1rem;
+  header.header label.mobile div.container_mobile {
+    display: flex;
+  }
+
+  header.header label.mobile div.container_mobile i {
+    color: var(--white-color);
+  }
+
+  header.header label.mobile {
+    position: relative;
+    transition: transform 0.3s;
+    transition: background 0.3s;
+  }
+
+  header.header label.mobile nav.nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    transition: transform 0.3s;
+    transition: background 0.3s;
+  }
+
+  header.header input:checked ~ label.mobile nav.nav {
+    position: fixed;
+    left: 0;
+    top: 59px;
+    width: 100%;
+    display: flex;
+    row-gap: 10px;
+    padding: 20px;
+    flex-direction: column;
+    background: linear-gradient(
+      75deg,
+      var(--white-color),
+      var(--primary-color)
+    );
+    min-width: 120px;
+    text-align: right;
+  }
+
+  header.header input:checked ~ label.mobile div.lightbox {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(2, 12, 19, 0.6);
+    height: 100vh;
+    z-index: -1;
   }
 }
