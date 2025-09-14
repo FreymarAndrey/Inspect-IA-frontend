@@ -23,7 +23,7 @@ div.container {
   padding: 20px;
   background: var(--white-color);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px 6px rgba(0, 0, 0, 0.1);
 }
 
 div.container h1 {
@@ -75,28 +75,38 @@ div.container form div.form_input label {
   font-weight: 500;
 }
 
-.error {
+div.container form div.form_input p {
+  color: var(--primary-color);
+  font-weight: 700;
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+div.container form div.form_input p.error {
   color: var(--error-color);
   font-size: 0.9rem;
   margin-top: 5px;
 }
 
-.submitButton {
-  background: var(--primary-color);
-  color: var(--white-color);
+div.container form button.submit {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   padding: 15px;
-  border: none;
   border-radius: 5px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-.submitButton:hover {
-  background: var(--text-primary-color);
+div.container form button.submit:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
-.submitButton:disabled {
+div.container form button.submit:disabled {
   background: var(--button-disabled-color);
   cursor: not-allowed;
+  color: var(--white-color);
+  border: none;
 }

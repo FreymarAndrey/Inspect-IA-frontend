@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { AuthContext, UIContext } from "src/context";
+import { CustomStorage } from "src/lib";
 
 const Header = () => {
+  const { setUserAuth } = useContext(AuthContext);
+  const { uiState, setIsAuthenticated } = useContext(UIContext);
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const toggleMenuRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   const handleInput = () => {
     setIsChecked((prevChecked) => !prevChecked);
@@ -12,6 +17,13 @@ const Header = () => {
 
   const handleChangeInput = () => {
     setIsChecked(false);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setUserAuth(null);
+    CustomStorage.cleanTokens();
+    navigate("/", { replace: true });
   };
 
   return (
@@ -54,9 +66,19 @@ const Header = () => {
           >
             Agendar
           </Link>
-          <Link to="/auth" className={styles.link} onClick={handleChangeInput}>
-            Iniciar Sesión
-          </Link>
+          {!uiState.isAuthenticated ? (
+            <Link
+              to="/auth"
+              className={styles.link}
+              onClick={handleChangeInput}
+            >
+              Iniciar Sesión
+            </Link>
+          ) : (
+            <Link to="/auth" className={styles.link} onClick={handleLogout}>
+              Cerrar Sesión
+            </Link>
+          )}
         </nav>
         <div className={styles.lightbox}></div>
       </label>

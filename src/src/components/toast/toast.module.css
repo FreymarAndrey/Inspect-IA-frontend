@@ -1,0 +1,86 @@
+aside.custom_toast {
+  position: fixed;
+  width: 400px;
+  padding: 16px;
+  border-radius: 4px;
+  right: 40px;
+  top: 20px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 10px;
+  z-index: 30;
+  border-radius: 12px;
+  background: var(--white-color);
+  box-shadow: 0px 25px 57px 0px rgba(22, 35, 45, 0.16);
+  z-index: 99999;
+}
+
+aside.custom_toast div.toast_icon {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+aside.custom_toast div.toast_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 8px;
+  position: relative;
+}
+
+aside.custom_toast div.toast_content img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+aside.custom_toast div.toast_content * {
+  color: var(--text-main-color);
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  text-wrap: wrap;
+}
+
+aside.custom_toast div.toast_content strong {
+  font-weight: 700;
+}
+
+aside.custom_toast div.toast_content strong.success {
+  color: var(--text-secondary-color);
+}
+
+aside.custom_toast div.toast_content strong.error {
+  color: var(--error-color);
+}
+
+aside.custom_toast div.toast_content strong.warning {
+  color: var(--text-orange-color);
+}
+
+aside.custom_toast.success div.toast_icon {
+  background-image: url("../../assets/icons/circle-success.svg");
+}
+
+aside.custom_toast.error div.toast_icon {
+  background-image: url("../../assets/icons/circle-error.svg");
+}
+
+aside.custom_toast.warning div.toast_icon {
+  background-image: url("../../assets/icons/circle-warning.svg");
+}
+
+aside.custom_toast.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  aside.custom_toast {
+    width: 98%;
+    left: 3px;
+  }
+}

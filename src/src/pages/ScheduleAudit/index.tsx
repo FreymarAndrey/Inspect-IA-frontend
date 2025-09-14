@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import { ScheduleValidatorForm } from "src/validators";
 import styles from "./scheduleAudit.module.css";
 import { Link } from "react-router-dom";
+import useAxios from "src/hooks/useAxios";
+import { ScheduleService } from "src/services/schedule.service";
+import { UIContext } from "src/context";
 
 const ScheduleAudit = () => {
+  const { callEndpoint } = useAxios();
+  const { setToast } = useContext(UIContext);
   const [loading, setLoading] = useState<boolean>(false);
 
   const formik = useFormik({
@@ -14,8 +19,16 @@ const ScheduleAudit = () => {
     onSubmit: async (values) => {
       if (formik.isValid) {
         setLoading(true);
-        console.log(values);
-        alert("Auditoría agendada con éxito!");
+        const res = await callEndpoint(ScheduleService.createSchedule(values));
+        if (res) {
+          setToast({
+            type: "success",
+            title: "Existo!",
+            message: "Se ha agendado la auditoria correctamente",
+            duration: 5000,
+          });
+          formik.resetForm();
+        }
         setLoading(false);
       }
     },
@@ -30,11 +43,11 @@ const ScheduleAudit = () => {
         <h1>Agendar Auditoría</h1>
         <form onSubmit={formik.handleSubmit}>
           <div className={styles.form_input}>
-            <label htmlFor="companyName">Nombre de la empresa</label>
+            <label htmlFor="company">Nombre de la empresa</label>
             <input
               type="text"
-              name="companyName"
-              id="companyName"
+              name="company"
+              id="company"
               disabled={loading}
               value={formik.values.company}
               onChange={formik.handleChange}
@@ -132,72 +145,72 @@ const ScheduleAudit = () => {
           <div className={styles.form_input}>
             <label htmlFor="duration">Duración estimada</label>
             <input
-              type="text"
+              type="time"
               name="duration"
               id="duration"
-              disabled={loading}
-              value={formik.values.duration}
+              min="00:45"
+              max="03:00"
+              step="60"
+              value={formik.values.duration ?? ""}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              placeholder="Ej: 2 horas"
-              className={
-                formik.touched.duration
-                  ? formik.errors.duration
-                    ? styles.error_input
-                    : styles.input_valid
-                  : ""
-              }
             />
-            <p className={styles.error}>
-              {formik.touched.duration && formik.errors.duration}
-            </p>
+
+            {formik.errors.duration ? (
+              <p className={styles.error}>
+                {formik.touched.duration && formik.errors.duration}
+              </p>
+            ) : (
+              <p>entre 0:45 minutos y 3:00 horas</p>
+            )}
           </div>
 
           <div className={styles.form_input}>
-            <label htmlFor="auditor">Auditor responsable</label>
+            <label htmlFor="responsibleAudit">Responsable</label>
             <input
               type="text"
-              name="auditor"
-              id="auditor"
+              name="responsibleAudit"
+              id="responsibleAudit"
               disabled={loading}
-              value={formik.values.auditor}
+              value={formik.values.responsibleAudit}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Nombre del auditor"
               className={
-                formik.touched.auditor
-                  ? formik.errors.auditor
+                formik.touched.responsibleAudit
+                  ? formik.errors.responsibleAudit
                     ? styles.error_input
                     : styles.input_valid
                   : ""
               }
             />
             <p className={styles.error}>
-              {formik.touched.auditor && formik.errors.auditor}
+              {formik.touched.responsibleAudit &&
+                formik.errors.responsibleAudit}
             </p>
           </div>
 
           <div className={styles.form_input}>
-            <label htmlFor="department">Área/departamento a auditar</label>
+            <label htmlFor="auditArea">Área/departamento a auditar</label>
             <input
               type="text"
-              name="department"
-              id="department"
+              name="auditArea"
+              id="auditArea"
               disabled={loading}
-              value={formik.values.department}
+              value={formik.values.auditArea}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Ej: Producción"
               className={
-                formik.touched.department
-                  ? formik.errors.department
+                formik.touched.auditArea
+                  ? formik.errors.auditArea
                     ? styles.error_input
                     : styles.input_valid
                   : ""
               }
             />
             <p className={styles.error}>
-              {formik.touched.department && formik.errors.department}
+              {formik.touched.auditArea && formik.errors.auditArea}
             </p>
           </div>
 
@@ -227,7 +240,7 @@ const ScheduleAudit = () => {
           <button
             type="submit"
             disabled={loading || !formik.dirty || !formik.isValid}
-            className={styles.submitButton}
+            className={styles.submit}
           >
             Agendar {loading && <i className="fas fa-spinner fa-pulse"></i>}
           </button>

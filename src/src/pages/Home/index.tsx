@@ -27,9 +27,11 @@ const Home = () => {
           <div className={styles.hero_content}>
             <h1 className={styles.hero_title}>Bienvenido a InspectIA-Web</h1>
             <h3 className={styles.hero_subtitle}>
-              Tu socio confiable en servicios de auditoría. Ofrecemos soluciones
-              expertas para asegurar la integridad y el cumplimiento de tu
-              negocio.
+              Tu aliado estratégico en auditorías inteligentes. <br />
+              Impulsamos la confianza y el crecimiento de tu negocio con
+              soluciones de auditoría precisas, innovadoras y confiables,
+              diseñadas para garantizar el cumplimiento normativo y la
+              excelencia operativa.
             </h3>
             <img
               src={heroImg}
@@ -56,12 +58,14 @@ const Home = () => {
           <div className={styles.container}>
             <h2 className={styles.section_title}>Sobre InspectiaWeb</h2>
             <p className={styles.about_text}>
-              InspectiaWeb es una empresa líder en servicios de auditoría,
-              dedicada a proporcionar evaluaciones precisas y confiables para
-              empresas de todos los tamaños. Nuestro equipo de expertos utiliza
-              las últimas tecnologías y metodologías para garantizar que tu
-              negocio cumpla con los estándares más altos de calidad y
-              regulación.
+              En InspectIA-Web somos especialistas en servicios de auditoría que
+              transforman la gestión empresarial. Ayudamos a empresas de todos
+              los tamaños a detectar oportunidades de mejora, fortalecer sus
+              procesos y cumplir con los estándares internacionales más
+              exigentes. <br />
+              Nuestro equipo combina experiencia, conocimiento normativo y
+              tecnología avanzada, para ofrecer diagnósticos confiables que
+              inspiran seguridad y generan valor real en tu organización.
             </p>
           </div>
         </section>
@@ -159,21 +163,25 @@ const Home = () => {
             <h2 className={styles.section_title}>¿Por Qué Elegirnos?</h2>
             <div className={styles.features}>
               <div className={styles.feature}>
-                <h4>Experiencia Comprobada</h4>
-                <p>Más de 10 años de experiencia en el sector de auditoría.</p>
-              </div>
-              <div className={styles.feature}>
-                <h4>Tecnología Avanzada</h4>
+                <h4>Trayectoria y Confianza</h4>
                 <p>
-                  Utilizamos herramientas de vanguardia para resultados
-                  precisos.
+                  Más de 10 años ayudando a organizaciones a elevar sus
+                  estándares de calidad y seguridad.
                 </p>
               </div>
               <div className={styles.feature}>
-                <h4>Enfoque Personalizado</h4>
+                <h4>Innovación en Cada Auditoría</h4>
                 <p>
-                  Soluciones adaptadas a las necesidades específicas de tu
-                  negocio.
+                  Integramos tecnología avanzada y metodologías ágiles para
+                  ofrecer resultados rápidos, precisos y fáciles de implementar.
+                </p>
+              </div>
+              <div className={styles.feature}>
+                <h4>Impacto Real y Medible</h4>
+                <p>
+                  Nuestros informes no solo detectan hallazgos, también brindan
+                  recomendaciones prácticas que generan mejoras visibles en la
+                  gestión.
                 </p>
               </div>
             </div>

@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import { LoginValidatorForm } from "src/validators";
 import eye from "src/assets/icons/eye.webp";
 import noeye from "src/assets/icons/no-eye.webp";
 import styles from "../auth.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "src/routes";
+import { AuthService } from "src/services/auth.service";
+import useAxios from "src/hooks/useAxios";
+import { CustomStorage } from "src/lib";
+import { AuthContext, UIContext } from "src/context";
 
 const Login = () => {
+  const { callEndpoint } = useAxios();
+  const { setUserAuth } = useContext(AuthContext);
+  const { setToast, setIsAuthenticated } = useContext(UIContext);
   const [loading, setLoading] = useState<boolean>(false);
   const [showPaswword, setShowPaswword] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: LoginValidatorForm.initialState,
@@ -18,7 +26,23 @@ const Login = () => {
     onSubmit: async ({ email, password }) => {
       if (formik.isValid) {
         setLoading(true);
-        console.log(email, password);
+        const res = await callEndpoint(AuthService.login(email, password));
+        if (res) {
+          const { data } = res.data;
+          CustomStorage.token = data.token;
+          setUserAuth(res.data);
+          formik.resetForm();
+          setToast({
+            type: "success",
+            title: "Existo!",
+            message: "Login exitoso",
+            duration: 5000,
+          });
+          setIsAuthenticated(true);
+          navigate(`/${publicRoutes.LANDING}`);
+        } else {
+          setLoading(false);
+        }
         setLoading(false);
       }
     },
@@ -28,7 +52,7 @@ const Login = () => {
     <>
       <div className={styles.form_auth}>
         <h3>ExpectIA</h3>
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} autoComplete="off">
           <div className={styles.form_input}>
             <div>
               <input

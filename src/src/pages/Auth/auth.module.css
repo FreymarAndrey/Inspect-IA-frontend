@@ -12,7 +12,7 @@ div.form_auth {
   flex-direction: column;
   row-gap: 20px;
   text-align: center;
-  max-width: 450px;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -57,9 +57,20 @@ div.form_auth form div.form_input {
   position: relative;
 }
 
+div.form_auth form div.form_input:nth-child(5) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+div.form_auth form div.form_input:nth-child(8) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-bottom: 10px;
+}
+
 div.form_auth form div.form_input input {
   height: 40px;
-  border: 1px solid var(--border-dark-color);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   background-color: var(--background-card);
 }
@@ -223,6 +234,24 @@ div.form_start a:hover {
 
 div.form_auth form > p {
   text-align: left;
+}
+
+div.form_auth form div.form_input div p {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--text-main-color);
+}
+
+div.form_auth form div.form_input p.error {
+  color: var(--error-color);
+}
+
+div.form_auth form div.form_input p.success {
+  color: var(--background-green-color);
 }
 
 @media screen and (max-width: 1100px) {
